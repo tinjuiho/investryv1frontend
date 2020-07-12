@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"investryv1frontend35a79e1a": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
