@@ -6,5 +6,11 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+	},
+	"storage": {
+		"s32ceb125a": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from 'bootstrap-4-react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import { Auth, Hub, Logger } from 'aws-amplify';
+import { Logger } from 'aws-amplify';
 
-import { Home, Login } from '../pages';
+import store from '../store';
+import { Home, Profile, Login } from '../pages';
 
 const logger = new Logger('Main');
 
@@ -11,26 +12,22 @@ export default class Main extends Component {
   constructor(props) {
     super(props);
 
-    this.loadUser = this.loadUser.bind(this);
-
-    Hub.listen('auth', this, 'main');
+    this.storeListener = this.storeListener.bind(this);
 
     this.state = { user: null }
   }
 
   componentDidMount() {
-    this.loadUser();
+    this.unsubscribeStore = store.subscribe(this.storeListener);
   }
 
-  onHubCapsule(capsule) {
-    logger.info('on Auth event', capsule);
-    this.loadUser();
+  componentWillUnmount() {
+    this.unsubscribeStore();
   }
 
-  loadUser() {
-    Auth.currentAuthenticatedUser()
-      .then(user => this.setState({ user: user }))
-      .catch(err => this.setState({ user: null }));
+  storeListener() {
+    logger.info('redux notification');
+    this.setState({ user: store.getState().user });
   }
 
   render() {
@@ -45,6 +42,11 @@ export default class Main extends Component {
                 exact
                 path="/"
                 render={(props) => <Home user={user} />}
+              />
+              <Route
+                exact
+                path="/profile"
+                render={(props) => <Profile user={user} />}
               />
               <Route
                 exact

@@ -1,6 +1,6 @@
 {
     "identityPoolName": "investryv1frontend35a79e1a_identitypool_35a79e1a",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "invest35a79e1a",
     "userPoolName": "investryv1frontend35a79e1a_userpool_35a79e1a",
     "autoVerifiedAttributes": [
