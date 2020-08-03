@@ -1,6 +1,6 @@
 import { Auth, Hub, Logger } from 'aws-amplify';
 
-import { switchUser, updateProfile, deleteProfile } from './actions';
+import { switchUser, updateProfile, deleteProfile } from '../actions';
 
 const logger = new Logger('AmplifyBridge');
 

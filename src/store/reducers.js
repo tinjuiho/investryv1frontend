@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SWITCH_USER, UPDATE_PROFILE, DELETE_PROFILE } from './actions';
+import { SWITCH_USER, UPDATE_PROFILE, DELETE_PROFILE } from '../actions';
 
 function user(state={}, action) {
   switch(action.type) {

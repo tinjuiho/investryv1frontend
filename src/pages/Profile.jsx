@@ -3,7 +3,8 @@ import { Auth, Logger } from 'aws-amplify';
 import { Container, Form, InputGroup, Button, Alert } from 'bootstrap-4-react';
 
 import { Unexpected, Unauthorized } from '../components';
-import store, { updateProfile } from '../store';
+import store from '../store';
+import { updateProfile } from '../actions'
 
 const logger = new Logger('Profile');
 
