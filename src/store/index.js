@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-import Journal from './reducers';
+import { Journal } from '../reducers';
 
 const store = createStore(Journal);
 
